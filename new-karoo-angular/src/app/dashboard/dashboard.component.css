@@ -1,16 +1,17 @@
 div.container {
-    width: 90vw;
-    height: 90vh;
-    background: white;
-    margin: 3vh auto;
-    border-radius: 10px;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: "20vh 50vh 2ovh 10vh";
+    background: whitesmoke;
 }
 
 div.header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 13px;
+    padding: 15px;
+    margin: 1vh 0;
 }
 
 div.header img {
@@ -44,7 +45,7 @@ div.header button {
     height: 5.6vh;
     color: #5F5F5F;
     border-radius: 5px;
-    background: transparent;
+    background: white;
     font-weight: bold;
     border-bottom: 1px solid #eb7a51;
     cursor: pointer;
@@ -53,27 +54,50 @@ div.header button {
 
 div.header button:hover {
     font-weight: bold;
-    background: rgba(254, 97, 51, .6);
+    background: #FF4500;
     color: #fff;
     border: 0;
 }
 
-body {
-    margin: 12px 30px;
+div.body {
+    display: flex;
+    flex-direction: column;
+    margin: 12px auto;
     width: 80vw;
-    height: 55.8vh;
+    height: 55vh;
     padding: 20px;
-    background: whitesmoke;
+    background: white;
+    border-radius: 12px;
 }
 
-body h2 {
+div.body h2 {
     color: #FF4500;
-    margin: 3px 0;
+    margin-right: auto;
 }
 
 div.lista {
+    padding: 12px;
+    transition: .2s;
+    border-radius: 3px;
+    width: 76vw;
+    border-bottom: .7px solid #CCCCCC;
+    margin: 5px auto;
+    cursor: pointer;
+}
+
+div.lista-container {
+    max-height: 55vh;
     overflow: auto;
-    max-height: 48vh;
+}
+
+div.body div.lista:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+div.body a {
+    text-decoration: none;
+    color: #5188CF;
+    padding: 12px;
 }
 
 button.btn-go {
@@ -89,17 +113,25 @@ button.btn-go {
     border-radius: 12px;
     transition: .2s;
     margin: auto;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 button.btn-go:hover {
-    background: #ff6711;
+    background: #d44f1a;
 }
 
-footer a {
-    margin-left: 66.3vw;
+div.footer {
+    display: flex;
+    padding: 15px;
+    margin-left: auto;
+    /* justify-content: flex-end; */
+}
+
+div.footer a {
     text-decoration: none;
 }
 
-footer a:visited {
+div.footer a:visited {
     color: #3e2c35;
 }
