@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<div class="container">
+    <div class="header">
+        <img src="https://www.karoo.com.br/img/base_conhecimento/bemvindo_only.png" />
+        <input placeholder="Termo a ser pesquisado" />
+        <button>Pesquisar</button>
+    </div>
+
+    <div class="body">
+
+        <h2>Artigos em destaque</h2>
+        <div class="lista-container">
+            <div *ngFor="let item of lista" class="lista">
+                <a href="{{ item.link }}" class="lista-item" target="blank">{{ item.descricao }}</a>
+            </div>
+        </div>
+
+    </div>
+    <button class="btn-go">
+        Entrar no chat
+    </button>
+    <div class="footer">
+        <a href="https://www.karoo.com.br/" target="blank"> Karoo Chat </a> - Alterdata Software - Dudu.dsn.pack
+    </div>
+</div>
