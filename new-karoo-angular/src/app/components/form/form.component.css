@@ -1,0 +1,39 @@
+div.container {
+    display: grid;
+    grid-template-rows: 10vh 76vh 7vh 6vh;
+    margin: auto;
+    width: 66vw;
+    padding: 15px;
+    background-color: whitesmoke;
+}
+
+div.header {
+    display: flex;
+    align-items: center;
+}
+
+div.header h1, h3 {
+    font-weight: 400;
+}
+
+div.header h3 {
+    margin: 8px 0 0 12px;
+}
+
+div.body {
+    display: flex;
+    flex-direction: column;
+}
+
+div.body span {
+    width: 40vw;
+    height: 3.6vh;
+    margin: 5px;
+}
+div.body input {
+    width: 40vw;
+    height: 3.6vh;
+    padding: 6px;
+    border-radius: 4px;
+    outline: none;
+}

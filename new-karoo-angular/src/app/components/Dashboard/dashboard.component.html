@@ -9,15 +9,16 @@
 
         <h2>Artigos em destaque</h2>
         <div class="lista-container">
-            <div *ngFor="let item of lista" class="lista">
-                <a href="{{ item.link }}" class="lista-item" target="blank">{{ item.descricao }}</a>
+            <div class="lista" *ngIf="destaques.length == 0">Nao há informações adicionais</div>
+            <div *ngFor="let destaque of destaques" class="lista">
+                <a href="{{ destaque.link }}" class="lista-item" target="blank">{{ destaque.descricao }}</a>
             </div>
         </div>
 
     </div>
-    <button class="btn-go">
+    <a class="btn-go" routerLink='/form'>
         Entrar no chat
-    </button>
+    </a>
     <div class="footer">
         <a href="https://www.karoo.com.br/" target="blank"> Karoo Chat </a> - Alterdata Software - Dudu.dsn.pack
     </div>
