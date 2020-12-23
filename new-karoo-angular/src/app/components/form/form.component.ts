@@ -23,7 +23,6 @@ export class FormComponent implements OnInit {
   }
 
   setAssunto() {
-    console.log(this.);
     // console.log(codigoCliente);
   }
 
