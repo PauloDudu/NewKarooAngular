@@ -5,13 +5,13 @@
     </div>
     <div class="body">
         <span>Código do cliente ou CNPJ/CPF</span>
-        <input type="text">
+        <input type="text" [(ngModel)]="assunto.codigoCliente">
         <span>Email</span>
-        <input type="text" placeholder="Digite aqui seu email">
+        <input type="text" placeholder="Digite aqui seu email" [(ngModel)]="assunto.email">
         <span>Nome</span>
-        <input type="text" placeholder="Digite aqui seu nome">
+        <input type="text" placeholder="Digite aqui seu nome" [(ngModel)]="assunto.nomeCliente">
         <span>Assunto</span>
-        <textarea style="resize: none; width: 20vw; height: 10vh;" placeholder="Digite aqui o resumo sobre o que deseja converdar com um de nossos especialistas"></textarea>
+        <textarea style="resize: none; width: 20vw; height: 10vh;" placeholder="Digite aqui o resumo sobre o que deseja converdar com um de nossos especialistas" [(ngModel)]="assunto.conteudo"></textarea>
     </div>
     <div class="links">
         <a routerLink='/dashboard'>Voltar</a>

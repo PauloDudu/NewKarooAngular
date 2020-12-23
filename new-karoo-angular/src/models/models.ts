@@ -10,7 +10,7 @@ export interface funcionario {
     senha: String
 }
 
-export interface assunto {
+export interface Assunto {
     codigoCliente: String,
     email: String,
     nomeCliente: String,

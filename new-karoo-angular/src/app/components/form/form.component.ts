@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { assunto } from "../../../models/models";
-import { FormBuilder } from '@angular/forms';
+import { Assunto } from "../../../models/models";
+// import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -12,18 +12,18 @@ export class FormComponent implements OnInit {
   constructor() { 
   }
   
-  assunto: assunto = {
+  assunto: Assunto = {
     codigoCliente: '',
     email: '',
     nomeCliente: '',
     conteudo: ''
-  }; 
+  };
+  
 
   ngOnInit(): void {
   }
 
   setAssunto() {
-    // console.log(codigoCliente);
+    console.log(this.assunto);
   }
-
 }
