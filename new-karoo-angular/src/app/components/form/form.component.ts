@@ -19,11 +19,14 @@ export class FormComponent implements OnInit {
     conteudo: ''
   };
   
-
   ngOnInit(): void {
   }
 
   setAssunto() {
-    console.log(this.assunto);
+
+    if(!localStorage.getItem('@KAROO:assunto')) {
+      localStorage.removeItem('@KAROO:assunto')
+    }    
+    localStorage.setItem('@KAROO:assunto', JSON.stringify(this.assunto));
   }
 }

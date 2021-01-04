@@ -22,10 +22,11 @@ export class DashboardComponent implements OnInit {
   ngGetApi() {
     try {
 
-      let list = this.http.get<destaque[]>("http://localhost:3333/karoo/destaques");
+      let list = this.http.get<destaque[]>("https://api-new-karoo.herokuapp.com/karoo/destaques");
 
       list.subscribe(results => {
         this.destaques = results;
+        console.log(this.destaques)
         return results;
       })
 

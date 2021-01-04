@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/Dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from './components/form/form.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     FormComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
