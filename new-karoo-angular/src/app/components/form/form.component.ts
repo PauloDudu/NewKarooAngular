@@ -23,10 +23,15 @@ export class FormComponent implements OnInit {
   }
 
   setAssunto() {
+    if(!this.assunto.codigoCliente || !this.assunto.conteudo || !this.assunto.email || !this.assunto.nomeCliente) {
+      alert("Preencha os campos por favor!");
+      return;
+    }
 
     if(!localStorage.getItem('@KAROO:assunto')) {
       localStorage.removeItem('@KAROO:assunto')
     }    
     localStorage.setItem('@KAROO:assunto', JSON.stringify(this.assunto));
+    window.location.replace("/chat");
   }
 }
