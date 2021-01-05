@@ -1,39 +1,124 @@
 div.container {
-    display: grid;
-    grid-template-rows: 10vh 76vh 7vh 6vh;
-    margin: auto;
-    width: 66vw;
-    padding: 15px;
-    background-color: whitesmoke;
+  display: grid;
+  grid-template-rows: 15vh 65vh 10vh 10vh;
+  margin: auto;
+  width: 80vw;
+  padding: 30px;
+  font-size: large;
+  background-color: whitesmoke;
+  justify-content: center;
 }
 
 div.header {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-div.header h1, h3 {
-    font-weight: 400;
+div.header h1,
+h3 {
+  font-weight: 400;
 }
 
 div.header h3 {
-    margin: 8px 0 0 12px;
+  margin: 8px 0 0 12px;
 }
 
 div.body {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 div.body span {
-    width: 40vw;
-    height: 3.6vh;
-    margin: 5px;
+  width: 60vw;
+  height: 3.6vh;
+  margin: 5px;
 }
+
+div.body input,
+textarea {
+  width: 60vw;
+  padding: 6px;
+  outline: none;
+  border: 1px solid #cccccc;
+  color: #5f5f5f;
+  padding-left: 9px;
+  border-radius: 4px;
+}
+
 div.body input {
-    width: 40vw;
-    height: 3.6vh;
-    padding: 6px;
-    border-radius: 4px;
-    outline: none;
+  height: 3.6vh;
+}
+
+div.body textarea {
+  height: 15vh;
+  resize: none;
+}
+
+div.body textarea::placeholder {
+  font-family: sans-serif;
+}
+
+div.body input:hover, textarea:hover {
+    border: 1px solid #ff822a;
+}
+
+div.body input:focus, textarea:focus {
+    border: 1px solid #ff822a;
+}
+
+
+div.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.links a,
+button {
+  color: #fff;
+  border-radius: 9px;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  height: 5.6vh;
+  width: 8vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+div.links a {
+  height: 5.4vh;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.707);
+  background: white;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to bottom, #fff, #e6e6e6);
+  border: 1px solid #ccc;
+}
+
+div.links a:hover {
+  background: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom, #fff, #cacacad4);
+}
+div.links button {
+  background: white;
+  background-color: #ff4500;
+}
+
+div.links button:hover {
+  background: #ff1900;
+}
+
+div.footer {
+  position: fixed;
+  display: flex;
+  margin-top: 90vh;
+  margin-left: 51vw;
+}
+div.footer a {
+  text-decoration: none;
 }

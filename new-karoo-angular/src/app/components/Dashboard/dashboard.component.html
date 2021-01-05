@@ -1,7 +1,7 @@
 <div class="container">
     <div class="header">
         <img src="https://www.karoo.com.br/img/base_conhecimento/bemvindo_only.png" />
-        <input placeholder="Termo a ser pesquisado" />
+        <input placeholder="Termo a ser pesquisado" [(ngModel)]="filter" />
         <button>Pesquisar</button>
     </div>
 
@@ -10,7 +10,7 @@
         <h2>Artigos em destaque</h2>
         <div class="lista-container">
             <div class="lista" *ngIf="destaques.length == 0">Nao há informações adicionais</div>
-            <div *ngFor="let destaque of destaques" class="lista">
+            <div *ngFor="let destaque of destaques | filter:filter; let i = index" class="lista">
                 <a href="{{ destaque.link }}" class="lista-item" target="blank">{{ destaque.descricao }}</a>
             </div>
         </div>

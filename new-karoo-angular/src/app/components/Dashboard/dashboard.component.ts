@@ -1,35 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { destaque } from "../../../models/models";
-import { HttpClient } from '@angular/common/http';
+import { api } from '../../../services/api';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
 
   destaques: destaque[] = [];
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
+    localStorage.clear();
     this.ngGetApi();
   }
 
-  ngGetApi() {
+  async ngGetApi() {
     try {
 
-      let list = this.http.get<destaque[]>("http://localhost:3333/karoo/destaques");
-
-      list.subscribe(results => {
-        this.destaques = results;
-        return results;
-      })
-
-      
+      let results = await api.get<destaque[]>("https://api-new-karoo.herokuapp.com/karoo/destaques");
+      console.log(results);
+      this.destaques = results.data;
+            
     } catch (Exception) {
       console.log(Exception);
     }

@@ -4,18 +4,18 @@
         <h3>Atendimendo Online</h3>
     </div>
     <div class="body">
-        <span>Código do cliente ou CNPJ/CPF</span>
-        <input type="text" ng-model="assunto.codigoCliente">
-        <span>Email</span>
-        <input type="text" placeholder="Digite aqui seu email" ng-model="assunto.email">
-        <span>Nome</span>
-        <input type="text" placeholder="Digite aqui seu nome" ng-model="assunto.nome">
-        <span>Assunto</span>
-        <textarea style="resize: none; width: 20vw; height: 10vh;" placeholder="Digite aqui o resumo sobre o que deseja converdar com um de nossos especialistas" ng-model="assunto.conteudo"></textarea>
+            <span>Código do cliente ou CNPJ/CPF</span>
+            <input type="text" [(ngModel)]="assunto.codigoCliente">
+            <span>Email</span>
+            <input type="text" placeholder="Digite aqui seu email" [(ngModel)]="assunto.email">
+            <span>Nome</span>
+            <input type="text" placeholder="Digite aqui seu nome" [(ngModel)]="assunto.nomeCliente">
+            <span>Assunto</span>
+            <textarea placeholder="Digite aqui o resumo sobre o que deseja conversar com um de nossos especialistas" [(ngModel)]="assunto.conteudo"></textarea>
     </div>
     <div class="links">
         <a routerLink='/dashboard'>Voltar</a>
-        <button (click)="setAssunto()">Entrar</button>
+        <button (click)="setAssunto()" >Entrar</button>
     </div>
     <div class="footer">
         <a href="https://www.karoo.com.br/" target="blank"> Karoo Chat </a> - Alterdata Software - Dudu.dsn.pack

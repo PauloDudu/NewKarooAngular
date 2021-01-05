@@ -10,9 +10,19 @@ export interface funcionario {
     senha: String
 }
 
-export interface assunto {
+export interface Assunto {
     codigoCliente: String,
     email: String,
     nomeCliente: String,
     conteudo: String
+}
+
+export interface Message {
+    user: String,
+    content: String
+}
+
+export interface Chat {
+    id: String,
+    messages: Message[],
 }
