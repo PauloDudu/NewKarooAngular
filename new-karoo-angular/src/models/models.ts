@@ -16,3 +16,13 @@ export interface Assunto {
     nomeCliente: String,
     conteudo: String
 }
+
+export interface Message {
+    user: String,
+    content: String
+}
+
+export interface Chat {
+    id: String,
+    messages: Message[],
+}

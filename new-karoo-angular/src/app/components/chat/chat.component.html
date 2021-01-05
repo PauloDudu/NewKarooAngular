@@ -1,1 +1,14 @@
-<p>chat works!</p>
+<div class="container">
+  <div class="container-message">
+    <h1>Bem vindo {{ assunto.nomeCliente }}!</h1>
+    <h3>Email: {{ assunto.email }}</h3>
+    <h3>Vamos falar sobre {{ assunto.conteudo }}</h3>
+  </div>
+  <div class="chat">
+    <div class="body-chat" *ngFor="let message of chat.messages">
+      <span class="message-user">{{ message.user }}</span>
+      <span class="message-content">{{ message.content }}</span>
+    </div>
+    <input type="text" /><button>Enviar</button>
+  </div>
+</div>

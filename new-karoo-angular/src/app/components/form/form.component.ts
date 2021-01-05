@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Assunto } from "../../../models/models";
-// import { FormBuilder } from '@angular/forms';
+import { api } from '../../../services/api';
+import { ToastService } from 'angular-toastify';
 
 @Component({
   selector: 'app-form',
@@ -9,7 +10,9 @@ import { Assunto } from "../../../models/models";
 })
 export class FormComponent implements OnInit {
   
-  constructor() { 
+  constructor (
+    private _toastService: ToastService
+  ) { 
   }
   
   assunto: Assunto = {
@@ -20,18 +23,23 @@ export class FormComponent implements OnInit {
   };
   
   ngOnInit(): void {
+    window.localStorage.clear();
   }
 
-  setAssunto() {
+  async setAssunto() {
+
     if(!this.assunto.codigoCliente || !this.assunto.conteudo || !this.assunto.email || !this.assunto.nomeCliente) {
-      alert("Preencha os campos por favor!");
+      this._toastService.warn("Preencha os campos por favor!");
       return;
     }
-
-    if(!localStorage.getItem('@KAROO:assunto')) {
-      localStorage.removeItem('@KAROO:assunto')
-    }    
-    localStorage.setItem('@KAROO:assunto', JSON.stringify(this.assunto));
-    window.location.replace("/chat");
+    
+    try {  
+      let assunto = await api.post('assuntos', this.assunto);
+      localStorage.setItem('@KAROO:assunto', assunto.config.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      window.location.replace("/chat");
+    }
   }
 }
