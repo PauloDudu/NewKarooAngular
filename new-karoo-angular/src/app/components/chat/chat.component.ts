@@ -29,6 +29,12 @@ export class ChatComponent implements OnInit {
     },{
       user: 'Jonas',
       content: 'ola Mundo'
+    },{
+      user: 'Jonas',
+      content: 'ola Mundo'
+    },{
+      user: 'Jonas',
+      content: 'ola Mundo'
     }],
 }
 

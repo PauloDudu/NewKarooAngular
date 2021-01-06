@@ -11,6 +11,7 @@ import { api } from '../../../services/api';
 export class DashboardComponent implements OnInit {
 
   destaques: destaque[] = [];
+  filter: string = '';
 
   constructor() { }
 

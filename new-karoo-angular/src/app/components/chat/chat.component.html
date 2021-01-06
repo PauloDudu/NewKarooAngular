@@ -6,9 +6,14 @@
   </div>
   <div class="chat">
     <div class="body-chat" *ngFor="let message of chat.messages">
-      <span class="message-user">{{ message.user }}</span>
-      <span class="message-content">{{ message.content }}</span>
+      <div class="message">
+        <strong class="message-user"> {{ message.user }} </strong>
+        <span class="message-content"> {{ message.content }} </span>
+      </div>
     </div>
-    <input type="text" /><button>Enviar</button>
+  </div>
+  <div class="footer">
+    <input class="input-message" type="text" />
+    <button>Enviar</button>
   </div>
 </div>

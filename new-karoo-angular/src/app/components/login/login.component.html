@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="header">
+    <img src="../../../assets/logo.png" alt="" />
+  </div>
+  <div class="form">
+    <div class="input-area">
+      <label for="" class="email">Email</label>
+      <input type="text" placeholder="usuario.sup@alterdata.com" [(ngModel)]="funcionario.email"/>
+    </div>
+    <div class="input-area">
+      <label for="" class="senha">Senha</label>
+      <input type="password" placeholder="************" [(ngModel)]="funcionario.senha"/>
+    </div>
+    <button (click)="login()" class="send">Login</button>
+  </div>
+</div>

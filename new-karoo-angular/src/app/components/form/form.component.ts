@@ -34,7 +34,7 @@ export class FormComponent implements OnInit {
     }
     
     try {  
-      let assunto = await api.post('assuntos', this.assunto);
+      let assunto = await api.post('/assuntos', this.assunto);
       localStorage.setItem('@KAROO:assunto', assunto.config.data);
     } catch (error) {
       console.log(error);

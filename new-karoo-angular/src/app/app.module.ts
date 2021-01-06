@@ -4,14 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './components/Dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from './components/form/form.component';
 import { ChatComponent } from './components/chat/chat.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-import { AngularToastifyModule } from 'angular-toastify'; 
+import { AngularToastifyModule } from 'angular-toastify';
+import { LoginComponent } from './components/login/login.component';
+import { FuncionarioDashboardComponent } from './components/funcionario-dashboard/funcionario-dashboard.component'; 
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { AngularToastifyModule } from 'angular-toastify';
     DashboardComponent,
     FormComponent,
     ChatComponent,
+    LoginComponent,
+    FuncionarioDashboardComponent,
   ],
   imports: [
     BrowserModule,
