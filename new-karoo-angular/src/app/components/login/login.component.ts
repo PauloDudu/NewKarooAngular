@@ -11,10 +11,10 @@ import { api } from 'src/services/api';
 export class LoginComponent implements OnInit {
 
   funcionario: Funcionario = {
-    email: "",
+    email: "dudu.dsn.pack",
     id: 0,
     nome: "",
-    senha: "",
+    senha: "123123",
 
   };
 

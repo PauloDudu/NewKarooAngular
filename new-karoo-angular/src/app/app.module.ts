@@ -13,7 +13,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AngularToastifyModule } from 'angular-toastify';
 import { LoginComponent } from './components/login/login.component';
-import { FuncionarioDashboardComponent } from './components/funcionario-dashboard/funcionario-dashboard.component'; 
+import { FuncionarioDashboardComponent } from './components/funcionario/funcionario-dashboard/funcionario-dashboard.component';
+import { DestaquesComponent } from './components/funcionario/destaques/destaques.component';
+import { AcessoComponent } from './components/funcionario/acesso/acesso.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { FuncionarioDashboardComponent } from './components/funcionario-dashboar
     ChatComponent,
     LoginComponent,
     FuncionarioDashboardComponent,
+    DestaquesComponent,
+    AcessoComponent,
   ],
   imports: [
     BrowserModule,
