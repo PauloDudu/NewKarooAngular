@@ -16,6 +16,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FuncionarioDashboardComponent } from './components/funcionario/funcionario-dashboard/funcionario-dashboard.component';
 import { DestaquesComponent } from './components/funcionario/destaques/destaques.component';
 import { AcessoComponent } from './components/funcionario/acesso/acesso.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './components/funcionario/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { AcessoComponent } from './components/funcionario/acesso/acesso.componen
     FuncionarioDashboardComponent,
     DestaquesComponent,
     AcessoComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { AcessoComponent } from './components/funcionario/acesso/acesso.componen
     FormsModule,
     Ng2SearchPipeModule,
     AngularToastifyModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
