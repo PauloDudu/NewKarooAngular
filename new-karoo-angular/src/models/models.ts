@@ -1,4 +1,5 @@
 export interface destaque {
+    id: number,
     descricao: string,
     link: string
 }

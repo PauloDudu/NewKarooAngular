@@ -13,10 +13,7 @@ export class DestaquesComponent implements OnInit {
 
   destaques: destaque[] = [];
   filter: string = '';
-  destaque: destaque = {
-    descricao: '',
-    link: ''
-  };
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -35,15 +32,26 @@ export class DestaquesComponent implements OnInit {
     }
   }
 
-  openDialog(): void {
+  async delete(id: number) {
+
+    try {
+      let result = await api.delete(`destaques/${id}`);
+      this.ngGetApi();
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }   
+  }
+
+  openDialog(id: number) {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '250px',
-      data: {descricao: this.destaque.descricao, link: this.destaque.link}
+      data: { destaque: this.destaques.find((destaque: destaque) => id === destaque.id)},
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.destaque = result;
+      console.log(result)
     });
   }
 }

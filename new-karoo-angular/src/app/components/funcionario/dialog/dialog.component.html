@@ -1,10 +1,13 @@
-<h2 mat-dialog-title>Title</h2>
+<h2 mat-dialog-title>Editar</h2>
 
 <mat-dialog-content>
-    <p>Ola mundo</p>
+    <span>Descrição item: {{data.destaque.id}} </span>
+    <input type="text" [(ngModel)]="data.destaque.descricao" >
+    <span>Link</span>
+    <input type="text" [(ngModel)]="data.destaque.link" >
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close> Cancel</button>
-    <button mat-button> Salvar</button>
+    <button mat-button mat-dialog-close (click)="close()" > Cancel</button>
+    <button mat-button (click)="save()"> Salvar</button>
 </mat-dialog-actions>
