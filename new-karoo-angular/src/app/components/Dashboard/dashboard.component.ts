@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { destaque } from "../../../models/models";
 import { api } from '../../../services/api';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,7 @@ import { api } from '../../../services/api';
 export class DashboardComponent implements OnInit {
 
   destaques: destaque[] = [];
+  filter: string = '';
 
   constructor() { }
 
@@ -22,10 +24,10 @@ export class DashboardComponent implements OnInit {
   async ngGetApi() {
     try {
 
-      let results = await api.get<destaque[]>("https://api-new-karoo.herokuapp.com/karoo/destaques");
+      let results = await api.get<destaque[]>("destaques");
       console.log(results);
       this.destaques = results.data;
-            
+
     } catch (Exception) {
       console.log(Exception);
     }

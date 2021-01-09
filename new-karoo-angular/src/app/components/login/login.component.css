@@ -1,0 +1,72 @@
+div.container {
+    display: grid;
+    background: #EEEEEE;
+    grid-template-columns: 20vw 60vw 20vw;
+    grid-template-rows: 40vh 60vh;
+    grid-template-areas: ". b1 ."
+                         ". b2 .";
+    font-size: 20px;
+}
+
+div.header {
+    grid-area: b1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+div.header img {
+    width: 250px;
+}
+
+div.form {
+    grid-area: b2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.form div.input-area {
+    display: flex;
+    flex-direction: column;
+}
+
+div.form div.input-area label {
+    margin: 5px;
+}
+
+div.form div.input-area input {
+    border: 0;
+    border-bottom: 1px #555 solid;
+    padding: 10px;
+    border-radius:5px;
+    width: 40vw;
+    opacity: .9;
+    transition: .3s;
+    outline:none;
+    margin: 10px 0;
+    padding: 12px;
+}
+
+div.form div.input-area input:focus {
+    border-color: #e03a07;
+    outline: none;
+}
+
+div.form div.input-area input:hover {
+    border-color: #e03a07;
+    outline: none;
+    opacity: 1;
+}
+button.send {
+    width: 33vw;
+    margin-top: 20px;
+    padding: 13.4px;
+    border-radius: 5px;
+    border: 0;
+    outline:none;
+    color:#eee;
+    background-color: #e03a07;
+    font-size:16px;
+    transition: .3s;
+}

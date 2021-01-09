@@ -1,28 +1,36 @@
 export interface destaque {
-    descricao: String,
-    link: String
+    id: number,
+    descricao: string,
+    link: string
 }
 
 export interface funcionario {
     id: Number,
-    nome: String,
-    email: String,
-    senha: String
+    nome: string,
+    email: string,
+    senha: string
 }
 
 export interface Assunto {
-    codigoCliente: String,
-    email: String,
-    nomeCliente: String,
-    conteudo: String
+    codigoCliente: string,
+    email: string,
+    nomeCliente: string,
+    conteudo: string
 }
 
 export interface Message {
-    user: String,
-    content: String
+    user: string,
+    content: string
 }
 
 export interface Chat {
-    id: String,
+    id: string,
     messages: Message[],
+}
+
+export interface Funcionario {
+    email: string,
+    id: number,
+    nome: string,
+    senha: string
 }

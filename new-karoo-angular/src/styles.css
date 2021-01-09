@@ -14,7 +14,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: .6vw;
+    width: 0.25rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -26,3 +26,9 @@ body {
     background: #ff6e2ac7;
     border-radius: 12px;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
