@@ -22,7 +22,9 @@ export class DialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {}
+    @Inject(MAT_DIALOG_DATA) public data: { 
+      destaque: destaque
+     }
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +45,3 @@ export class DialogComponent implements OnInit {
     }
   }  
 }
-// id: 9
-// Descrição: Departamento Pessoal - Base de Conhecimento > eSocial - Tudo que você precisa saber para envio da 2ª fase do eSocial
-// Link: https://ajuda.alterdata.com.br/dpbase/esocial-tudo-que-voce-precisa-saber-para-envio-da-2-fase-do-esocial-65705529.html

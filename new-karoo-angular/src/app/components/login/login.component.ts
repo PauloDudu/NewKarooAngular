@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         this._toastService.error("Login e senha nao informados corretamente!");
         return;
       } else {
-        window.location.replace("func-dashboard")
+        window.location.replace("atendimento")
       }
 
     } catch (error) {

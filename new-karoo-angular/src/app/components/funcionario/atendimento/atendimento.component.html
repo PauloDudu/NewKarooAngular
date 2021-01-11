@@ -4,7 +4,7 @@
         <li class="logo">
           <a href="https://www.karoo.com.br/#/" target="blank" class="nav-link">
             <span class="link-text logo-text">Karoo</span>
-            <svg viewBox="0 0 448 512" >
+            <svg viewBox="0 0 448 512">
               <g class="fa-group">
                 <path
                   fill="currentColor"
@@ -52,7 +52,11 @@
     </nav>
   
     <main>
-  
+      <div *ngFor="let assunto of assuntos">
+        <span>{{assunto.codigoCliente}}</span>
+        <span>{{assunto.email}}</span>
+        <span>{{assunto.nomeCliente}}</span>
+        <span>{{assunto.conteudo}}</span>
+      </div>
     </main>
   </body>
-  

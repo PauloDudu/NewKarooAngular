@@ -19,7 +19,8 @@ export class FormComponent implements OnInit {
     codigoCliente: '',
     email: '',
     nomeCliente: '',
-    conteudo: ''
+    conteudo: '',
+    atendido: false
   };
   
   ngOnInit(): void {
