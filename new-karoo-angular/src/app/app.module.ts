@@ -13,11 +13,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AngularToastifyModule } from 'angular-toastify';
 import { LoginComponent } from './components/login/login.component';
-import { FuncionarioDashboardComponent } from './components/funcionario/funcionario-dashboard/funcionario-dashboard.component';
 import { DestaquesComponent } from './components/funcionario/destaques/destaques.component';
 import { AcessoComponent } from './components/funcionario/acesso/acesso.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/funcionario/dialog/dialog.component';
+import { AtendimentoComponent } from './components/funcionario/atendimento/atendimento.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +26,10 @@ import { DialogComponent } from './components/funcionario/dialog/dialog.componen
     FormComponent,
     ChatComponent,
     LoginComponent,
-    FuncionarioDashboardComponent,
     DestaquesComponent,
     AcessoComponent,
     DialogComponent,
+    AtendimentoComponent,
   ],
   imports: [
     BrowserModule,

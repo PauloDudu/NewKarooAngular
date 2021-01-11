@@ -15,7 +15,8 @@ export interface Assunto {
     codigoCliente: string,
     email: string,
     nomeCliente: string,
-    conteudo: string
+    conteudo: string,
+    atendido: boolean
 }
 
 export interface Message {
