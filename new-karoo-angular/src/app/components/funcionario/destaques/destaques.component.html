@@ -20,7 +20,6 @@
           </svg>
         </a>
       </li>
-
       <li class="nav-item">
         <a href="atendimento" class="nav-link">
           <i class="far fa-comment"></i>
@@ -42,10 +41,10 @@
         </a>
       </li>
 
-      <li class="nav-item" id="themeButton">
-        <a href="func-config" class="nav-link">
-          <i class="fas fa-cogs"></i>
-          <span class="link-text">Configurações</span>
+      <li class="nav-item" id="themeButton" (click)="logOut()">
+        <a class="nav-link">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="link-text">Sair</span>
         </a>
       </li>
     </ul>
@@ -57,7 +56,7 @@
       <div class="lista" *ngIf="destaques.length == 0">
         Nao há informações adicionais
       </div>
-      <div *ngFor="let destaque of destaques | filter: filter; let i = index" class="lista">
+      <div *ngFor="let destaque of destaques" class="lista">
         <span>id: {{ destaque.id }}</span><br>
         <span>Descrição: {{ destaque.descricao }}</span><br>
         <span>Link: {{ destaque.link }}</span>

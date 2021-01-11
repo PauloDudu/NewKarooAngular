@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Assunto } from 'src/models/models';
 import { api } from 'src/services/api';
+import { logOut } from "../function";
 
 @Component({
   selector: 'app-atendimento',
@@ -16,7 +17,6 @@ export class AtendimentoComponent implements OnInit {
   ngOnInit(): void {
     this.get();
   }
-
   
   async get() {
     try {
@@ -25,6 +25,10 @@ export class AtendimentoComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  logOut() {
+    logOut();
   }
 
 

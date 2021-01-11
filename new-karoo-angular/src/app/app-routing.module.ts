@@ -7,17 +7,17 @@ import { ChatComponent } from './components/chat/chat.component';
 import { LoginComponent } from './components/login/login.component';
 import { AcessoComponent } from './components/funcionario/acesso/acesso.component';
 import { DestaquesComponent } from './components/funcionario/destaques/destaques.component';
-import { ConfigComponent } from './components/funcionario/config/config.component';
 import { AtendimentoComponent } from './components/funcionario/atendimento/atendimento.component';
+import { AuthProviderGuard } from './hooks/auth-provider.guard';
+
 
 const routes: Routes = [
   { path: 'form', component: FormComponent },
-  { path: 'chat', component: ChatComponent },
+  { path: 'chat', component: ChatComponent, canActivate: [AuthProviderGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'atendimento', component: AtendimentoComponent },
-  { path: 'func-acesso', component: AcessoComponent },
-  { path: 'func-destaques', component: DestaquesComponent },
-  { path: 'func-config', component: ConfigComponent },
+  { path: 'atendimento', component: AtendimentoComponent, canActivate: [AuthProviderGuard] },
+  { path: 'func-acesso', component: AcessoComponent, canActivate: [AuthProviderGuard] },
+  { path: 'func-destaques', component: DestaquesComponent, canActivate: [AuthProviderGuard] },
   { path: '**', component: DashboardComponent },
 
 ];

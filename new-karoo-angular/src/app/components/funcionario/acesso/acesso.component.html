@@ -41,16 +41,17 @@
         </a>
       </li>
 
-      <li class="nav-item" id="themeButton">
-        <a href="func-config" class="nav-link">
-          <i class="fas fa-cogs"></i>
-          <span class="link-text">Configurações</span>
+      <li class="nav-item" id="themeButton" (click)="logOut()">
+        <a class="nav-link">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="link-text">Sair</span>
         </a>
       </li>
     </ul>
   </nav>
 
   <main>
+    <h1>Acesso</h1>
     <table style="width: 100%">
       <tr>
         <th>id</th>
@@ -58,12 +59,15 @@
         <th>email</th>
         <th></th>
       </tr>
-        <tr *ngFor="let funcionario of funcionarios">
-          <td>{{ funcionario.id }}</td>
-          <td>{{ funcionario.nome }}</td>
-          <td>{{ funcionario.email }}</td>
-          <td><button>Editar</button><button>Excluir</button></td>
-        </tr>
+      <tr *ngFor="let funcionario of funcionarios">
+        <td>{{ funcionario.id }}</td>
+        <td>{{ funcionario.nome }}</td>
+        <td>{{ funcionario.email }}</td>
+        <td>
+          <button (click)="openDialog(funcionario.id)">Editar</button
+          ><button (click)="removeFunc(funcionario.id)">Excluir</button>
+        </td>
+      </tr>
     </table>
   </main>
 </body>
