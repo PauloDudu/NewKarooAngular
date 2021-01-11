@@ -4,12 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-   "postinstall": "ng build --aot --prod",
+    "postinstall": "ng build --aot --prod",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-  }, "engines": {
+  },
+  "engines": {
     "node": "10.13.0",
     "npm": "6.4.1"
   },
@@ -27,6 +28,7 @@
     "@angular/router": "~11.0.5",
     "angular-toastify": "^1.0.3",
     "axios": "^0.21.1",
+    "express": "^4.17.1",
     "ng2-search-filter": "^0.5.1",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.6.0",
