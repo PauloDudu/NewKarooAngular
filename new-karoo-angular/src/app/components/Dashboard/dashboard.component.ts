@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { destaque } from "../../../models/models";
+import { Destaque } from "../../../models/models";
 import { api } from '../../../services/api';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -11,7 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 export class DashboardComponent implements OnInit {
 
-  destaques: destaque[] = [];
+  destaques: Destaque[] = [];
   filter: string = '';
 
   constructor() { }
@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   async ngGetApi() {
     try {
 
-      let results = await api.get<destaque[]>("destaques");
+      let results = await api.get<Destaque[]>("destaques");
       console.log(results);
       this.destaques = results.data;
 

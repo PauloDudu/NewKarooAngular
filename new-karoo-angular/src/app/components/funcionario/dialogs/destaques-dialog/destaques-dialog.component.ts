@@ -1,7 +1,7 @@
 
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { destaque } from 'src/models/models';
+import { Destaque } from 'src/models/models';
 import { api } from 'src/services/api';
 
 @Component({
@@ -12,7 +12,7 @@ import { api } from 'src/services/api';
 
 export class DestaquesDialogComponent {
 
-  destaque: destaque = {
+  destaque: Destaque = {
     id: this.data.destaque.id,
     link: this.data.destaque.link,
     descricao: this.data.destaque.descricao
@@ -21,7 +21,7 @@ export class DestaquesDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<DestaquesDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { 
-      destaque: destaque
+      destaque: Destaque
      }
   ) { }
 

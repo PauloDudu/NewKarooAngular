@@ -49,13 +49,26 @@
       </li>
     </ul>
   </nav>
-  
-    <main>
-      <div *ngFor="let assunto of assuntos">
-        <span>{{assunto.codigoCliente}}</span>
-        <span>{{assunto.email}}</span>
-        <span>{{assunto.nomeCliente}}</span>
-        <span>{{assunto.conteudo}}</span>
+
+  <main class="atendimento">
+    <h1>Atendimento</h1>
+    <h3>Pendentes</h3>
+    <div class="lista">
+      <div *ngFor="let assunto of pendentes">
+        <div class="assunto" (click)="open(assunto.codigoCliente)">
+          <span><strong>Email:</strong> {{ assunto.email }}</span> 
+          <span><strong>Conteudo:</strong> {{ assunto.conteudo }}</span>
+          </div>
       </div>
-    </main>
-  </body>
+    </div>
+    <h3>Concluídos</h3>
+    <div class="lista">
+      <div *ngFor="let assunto of atendidos">
+        <div class="assunto" (click)="open(assunto.codigoCliente)">
+          <span><strong>Email:</strong> {{ assunto.email }}</span> 
+          <span><strong>Conteudo:</strong> {{ assunto.conteudo }}</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>

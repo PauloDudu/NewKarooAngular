@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { funcionario } from 'src/models/models';
+import { Funcionario } from 'src/models/models';
 import { api } from 'src/services/api';
 
 @Component({
@@ -10,7 +10,7 @@ import { api } from 'src/services/api';
 })
 export class AcessoDialogComponent {
 
-  funcionario: funcionario = {
+  funcionario: Funcionario = {
     id: this.data.funcionario.id,
     email: this.data.funcionario.email,
     nome: this.data.funcionario.nome,
@@ -20,7 +20,7 @@ export class AcessoDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<AcessoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { 
-      funcionario: funcionario
+      funcionario: Funcionario
      }
   ) { }
   

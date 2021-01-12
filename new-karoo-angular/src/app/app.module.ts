@@ -19,6 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AtendimentoComponent } from './components/funcionario/atendimento/atendimento.component';
 import { DestaquesDialogComponent } from './components/funcionario/dialogs/destaques-dialog/destaques-dialog.component';
 import { AcessoDialogComponent } from './components/funcionario/dialogs/acesso-dialog/acesso-dialog.component';
+import { MatTableModule } from '@angular/material/table';
+import { AtendimentoDialogComponent } from './components/funcionario/dialogs/atendimento-dialog/atendimento-dialog.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { AcessoDialogComponent } from './components/funcionario/dialogs/acesso-d
     AtendimentoComponent,
     DestaquesDialogComponent,
     AcessoDialogComponent,
+    AtendimentoDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { AcessoDialogComponent } from './components/funcionario/dialogs/acesso-d
     Ng2SearchPipeModule,
     AngularToastifyModule,
     MatDialogModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Assunto } from 'src/models/models';
 import { api } from 'src/services/api';
+import { AtendimentoDialogComponent } from '../dialogs/atendimento-dialog/atendimento-dialog.component';
 import { logOut } from "../function";
 
 @Component({
@@ -11,17 +13,26 @@ import { logOut } from "../function";
 export class AtendimentoComponent implements OnInit {
 
   assuntos: Assunto[] = [];
+  atendidos: Assunto[] = [];
+  pendentes: Assunto[] = [];
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.get();
   }
-  
+
   async get() {
     try {
       let response = await api.get('/assuntos');
       this.assuntos = response.data;
+      response.data.filter((assunto: Assunto) => {
+        if (assunto.atendido) {
+          this.atendidos.push(assunto);
+        } else {
+          this.pendentes.push(assunto);
+        }
+      });
     } catch (error) {
       console.log(error);
     }
@@ -31,5 +42,11 @@ export class AtendimentoComponent implements OnInit {
     logOut();
   }
 
+  open(id: string) {
 
+    this.dialog.open(AtendimentoDialogComponent, {
+      data: { assunto: this.assuntos.find((assunto: Assunto) => id === assunto.codigoCliente) },
+      disableClose: true
+    });
+  }
 }

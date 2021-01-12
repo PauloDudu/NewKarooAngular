@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { destaque } from 'src/models/models';
+import { Destaque } from 'src/models/models';
 import { api } from 'src/services/api';
 import { DestaquesDialogComponent } from '../dialogs/destaques-dialog/destaques-dialog.component';
 import { logOut } from "../function";
@@ -12,7 +12,7 @@ import { logOut } from "../function";
 })
 export class DestaquesComponent implements OnInit {
 
-  destaques: destaque[] = [];
+  destaques: Destaque[] = [];
   filter: string = '';
 
   constructor(public dialog: MatDialog) { }
@@ -24,7 +24,7 @@ export class DestaquesComponent implements OnInit {
   async ngGetApi() {
     try {
 
-      let results = await api.get<destaque[]>("destaques");
+      let results = await api.get<Destaque[]>("destaques");
       console.log(results);
       this.destaques = results.data;
 
@@ -47,7 +47,7 @@ export class DestaquesComponent implements OnInit {
   openDialog(id: number) {
 
     const dialogRef = this.dialog.open(DestaquesDialogComponent, {
-      data: { destaque: this.destaques.find((destaque: destaque) => id === destaque.id) },
+      data: { destaque: this.destaques.find((destaque: Destaque) => id === destaque.id) },
       disableClose: true
     });
 

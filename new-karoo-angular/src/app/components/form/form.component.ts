@@ -40,6 +40,7 @@ export class FormComponent implements OnInit {
     } catch (error) {
       console.log(error);
     } finally {
+      localStorage.setItem("token", JSON.stringify(this.assunto));
       window.location.replace("/chat");
     }
   }
