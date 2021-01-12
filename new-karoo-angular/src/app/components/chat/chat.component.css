@@ -1,6 +1,6 @@
 div.container {
     padding: 30px;
-    background: #ffa24b;
+    background: whitesmoke;
     display: grid;
     grid-template-rows: 22vh 60vh 18vh;
 }
@@ -25,18 +25,18 @@ div.message {
     width: 50vw;
     padding: 21px;
     border-radius: 3px;
-    background: #da4444;
+    background: #e4e8ff;
 
 }
 
 div.message strong.message-user {
-    color: #000000;
+    color: #485d5e;
     display: flex;
     flex-direction: row;
 }
 
 div.message span.message-content {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 input.input-message, button {

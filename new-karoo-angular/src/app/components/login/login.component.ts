@@ -3,25 +3,26 @@ import { Funcionario } from 'src/models/models';
 import { ToastService } from 'angular-toastify';
 import { api } from 'src/services/api';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  
   funcionario: Funcionario = {
     email: "dudu.dsn.pack",
     id: 0,
     nome: "",
     senha: "123123",
-
+    
   };
+  token: string = "";
 
   constructor (
     private _toastService: ToastService
   ) { }
-
 
   ngOnInit(): void {
     localStorage.clear();
@@ -45,7 +46,8 @@ export class LoginComponent implements OnInit {
         this._toastService.error("Login e senha nao informados corretamente!");
         return;
       } else {
-        window.location.replace("atendimento")
+        localStorage.setItem("token", JSON.stringify(this.funcionario));
+        window.location.replace("atendimento");
       }
 
     } catch (error) {

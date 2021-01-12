@@ -1,14 +1,7 @@
-export interface destaque {
+export interface Destaque {
     id: number,
     descricao: string,
     link: string
-}
-
-export interface funcionario {
-    id: Number,
-    nome: string,
-    email: string,
-    senha: string
 }
 
 export interface Assunto {

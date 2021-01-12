@@ -1,0 +1,12 @@
+<h1>Atendimento</h1>
+<h2>Codigo cliente: {{data.assunto.codigoCliente}}</h2>
+<h2>Email: {{data.assunto.email}}</h2>
+<h2>Nome: {{data.assunto.nomeCliente}}</h2>
+<h2>Conteudo: {{data.assunto.conteudo}}</h2>
+<h2>Status: {{data.assunto.atendido ? "Atendido" : "Pendente"}}</h2>
+<div *ngIf="data.assunto.atendido == false">
+    <button (click)="close()" >Cancelar</button><button (click)="updateAtendimento()">Atender</button>
+</div>
+<div *ngIf="data.assunto.atendido == true">
+    <button (click)="close()">Cancelar</button>
+</div>

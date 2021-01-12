@@ -15,7 +15,8 @@ export class ChatComponent implements OnInit {
     codigoCliente: '',
     email: '',
     nomeCliente: '',
-    conteudo: ''
+    conteudo: '',
+    atendido: false
   };
 
   chat: Chat = {

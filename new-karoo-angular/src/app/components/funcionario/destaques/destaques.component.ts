@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { destaque } from 'src/models/models';
+import { Destaque } from 'src/models/models';
 import { api } from 'src/services/api';
-import { DialogComponent } from '../dialog/dialog.component';
+import { DestaquesDialogComponent } from '../dialogs/destaques-dialog/destaques-dialog.component';
+import { logOut } from "../function";
 
 @Component({
   selector: 'app-destaques',
@@ -11,7 +12,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class DestaquesComponent implements OnInit {
 
-  destaques: destaque[] = [];
+  destaques: Destaque[] = [];
   filter: string = '';
 
   constructor(public dialog: MatDialog) { }
@@ -23,7 +24,7 @@ export class DestaquesComponent implements OnInit {
   async ngGetApi() {
     try {
 
-      let results = await api.get<destaque[]>("destaques");
+      let results = await api.get<Destaque[]>("destaques");
       console.log(results);
       this.destaques = results.data;
 
@@ -40,18 +41,23 @@ export class DestaquesComponent implements OnInit {
       console.log(result);
     } catch (error) {
       console.log(error);
-    }   
+    }
   }
 
   openDialog(id: number) {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      data: { destaque: this.destaques.find((destaque: destaque) => id === destaque.id)},
+
+    const dialogRef = this.dialog.open(DestaquesDialogComponent, {
+      data: { destaque: this.destaques.find((destaque: Destaque) => id === destaque.id) },
       disableClose: true
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result)
+    dialogRef.afterClosed().subscribe(() => {
+      this.ngGetApi();
     });
+
+  }
+
+  logOut() {
+    logOut();
   }
 }

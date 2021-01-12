@@ -16,8 +16,12 @@ import { LoginComponent } from './components/login/login.component';
 import { DestaquesComponent } from './components/funcionario/destaques/destaques.component';
 import { AcessoComponent } from './components/funcionario/acesso/acesso.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './components/funcionario/dialog/dialog.component';
 import { AtendimentoComponent } from './components/funcionario/atendimento/atendimento.component';
+import { DestaquesDialogComponent } from './components/funcionario/dialogs/destaques-dialog/destaques-dialog.component';
+import { AcessoDialogComponent } from './components/funcionario/dialogs/acesso-dialog/acesso-dialog.component';
+import { MatTableModule } from '@angular/material/table';
+import { AtendimentoDialogComponent } from './components/funcionario/dialogs/atendimento-dialog/atendimento-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -28,8 +32,10 @@ import { AtendimentoComponent } from './components/funcionario/atendimento/atend
     LoginComponent,
     DestaquesComponent,
     AcessoComponent,
-    DialogComponent,
     AtendimentoComponent,
+    DestaquesDialogComponent,
+    AcessoDialogComponent,
+    AtendimentoDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,8 @@ import { AtendimentoComponent } from './components/funcionario/atendimento/atend
     FormsModule,
     Ng2SearchPipeModule,
     AngularToastifyModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

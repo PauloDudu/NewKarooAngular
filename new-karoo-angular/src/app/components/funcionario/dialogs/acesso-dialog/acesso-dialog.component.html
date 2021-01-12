@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Editar funcionario</h2>
+
+<mat-dialog-content>
+    <span>id: {{data.funcionario.id}} </span>
+    <input type="text" [(ngModel)]="funcionario.nome" placeholder="{{data.funcionario.nome}}">
+    <span>Email</span>
+    <input type="text" [(ngModel)]="funcionario.email" placeholder="{{data.funcionario.email}}" >
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close> Cancel</button>
+    <button mat-button (click)="updateFunc()"> Salvar</button>
+</mat-dialog-actions>
