@@ -3,7 +3,6 @@ import { Funcionario } from 'src/models/models';
 import { ToastService } from 'angular-toastify';
 import { api } from 'src/services/api';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -46,8 +45,15 @@ export class LoginComponent implements OnInit {
         this._toastService.error("Login e senha nao informados corretamente!");
         return;
       } else {
-        localStorage.setItem("token", JSON.stringify(this.funcionario));
-        window.location.replace("atendimento");
+        try {
+          const token = await api.post('login', this.funcionario);
+
+          localStorage.setItem("token", token.data);
+  
+          window.location.replace("atendimento");
+        } catch (error) {
+          console.log(error)
+        }
       }
 
     } catch (error) {

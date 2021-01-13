@@ -51,18 +51,18 @@
   </nav>
 
   <main>
-    <h2>Artigos em destaque</h2>
+    <h1 class="destaque">Artigos em destaque</h1>
     <div class="lista-container">
       <div class="lista" *ngIf="destaques.length == 0">
         Nao há informações adicionais
       </div>
       <div *ngFor="let destaque of destaques" class="lista">
         <div class="destaque">
-          <span>id: {{ destaque.id }}</span>
           <span>Descrição: {{ destaque.descricao }}</span>
-          <span>Link: {{ destaque.link }}</span>
-          <button (click)="openDialog(destaque.id)">Editar</button>
-          <button (click)="delete(destaque.id)">Apagar</button>
+          <div>
+            <button (click)="openDialog(destaque.id)">Editar</button>
+            <button (click)="delete(destaque.id)">Apagar</button>
+          </div>
         </div>
       </div>
     </div>

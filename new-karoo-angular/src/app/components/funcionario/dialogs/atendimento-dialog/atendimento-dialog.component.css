@@ -1,0 +1,12 @@
+div.dialog-atend {
+    width: 35vw;
+    height: 50vh;
+}
+
+button {
+    outline: none;
+}
+
+strong, h1 {
+    color: #f1592a;
+}
