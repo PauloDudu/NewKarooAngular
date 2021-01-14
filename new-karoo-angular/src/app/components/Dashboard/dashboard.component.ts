@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit {
     try {
 
       let results = await api.get<Destaque[]>("destaques");
-      console.log(results);
       this.destaques = results.data;
 
     } catch (Exception) {

@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Funcionario } from 'src/models/models';
 import { ToastService } from 'angular-toastify';
 import { api } from 'src/services/api';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   
   funcionario: Funcionario = {
@@ -17,10 +19,12 @@ export class LoginComponent implements OnInit {
     senha: "123123",
     
   };
+
   token: string = "";
 
   constructor (
-    private _toastService: ToastService
+    private _toastService: ToastService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,36 +32,23 @@ export class LoginComponent implements OnInit {
   }
   
   async login() {
+
     if(!this.funcionario.email || !this.funcionario.senha) {
       this._toastService.warn("Preencha os campos por favor!");
       return;
     }
-    
+
+    console.log("Submit", this.funcionario);
+
     try {
-      let results = await api.get('funcionarios') ;
-      console.log(results.data);
-
-      const user = results.data.filter((funcionario : Funcionario) => {
-        return funcionario.email === this.funcionario.email && funcionario.senha === this.funcionario.senha;
-      });
-
-      if(user.length == 0) {
-        this._toastService.error("Login e senha nao informados corretamente!");
-        return;
-      } else {
-        try {
-          const token = await api.post('login', this.funcionario);
-
-          localStorage.setItem("token", token.data);
-  
-          window.location.replace("atendimento");
-        } catch (error) {
-          console.log(error)
-        }
-      }
+      let response = await api.post('login', this.funcionario);
+      localStorage.setItem("@KAROO:token", response.data);
+      window.location.replace("/atendimento");
 
     } catch (error) {
-      console.log(error);
+
+      this._toastService.error("Email ou senha incoretos");
+
     }
   }
 }
