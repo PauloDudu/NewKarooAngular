@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ToastService } from 'angular-toastify';
 import { Destaque } from 'src/models/models';
 import { api } from 'src/services/api';
 import { DestaquesDialogComponent } from '../dialogs/destaques-dialog/destaques-dialog.component';
@@ -14,8 +15,14 @@ export class DestaquesComponent implements OnInit {
 
   destaques: Destaque[] = [];
   filter: string = '';
+  create: boolean = false;
+  destaque: Destaque = {
+    descricao: '',
+    link: '',
+    id: 0
+  }
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private _toastService: ToastService) { }
 
   ngOnInit(): void {
     this.ngGetApi();
@@ -41,6 +48,27 @@ export class DestaquesComponent implements OnInit {
       console.log(result);
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  async createDest() {
+
+    if (!this.destaque.descricao || !this.destaque.link) {
+      this._toastService.warn("Preencha todos os campos");
+      return;
+    }
+
+    try {
+      await api.post("destaques", this.destaque);
+
+      this._toastService.success("Destaque criado com sucesso!");
+    } catch (error) {
+      console.log(error);
+      this._toastService.error("Ocorreu algum erro tente novamente!");
+    } finally {
+      this.ngGetApi();
+      this.destaque.descricao = "";
+      this.destaque.link = "";
     }
   }
 
