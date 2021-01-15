@@ -6,6 +6,7 @@ import { AcessoDialogComponent } from '../dialogs/acesso-dialog/acesso-dialog.co
 import { CreateFuncDialogComponent } from '../dialogs/create-func-dialog/create-func-dialog.component';
 import { logOut } from "../function";
 import { ToastService } from 'angular-toastify';
+import { RemoveFuncDialogComponent } from '../dialogs/remove-func-dialog/remove-func-dialog.component';
 
 @Component({
   selector: 'app-acesso',
@@ -43,14 +44,26 @@ export class AcessoComponent implements OnInit {
   }
 
   async removeFunc(id: number) {
-    try {
-      
-      await api.delete(`funcionarios/${id}`);
-      this._toastService.success("Funcionario removido com sucesso!")
+
+    const dialogRef = this.dialog.open(RemoveFuncDialogComponent, {
+      disableClose: true
+    });
+    
+    dialogRef.afterClosed().subscribe( async (results) => {
+
+      if(results) {
+        try {      
+          await api.delete(`funcionarios/${id}`);
+          this._toastService.success("Funcionario removido com sucesso!")
+          this.getFunc();
+        } catch (error) {
+          this._toastService.error("Funcionario não removido, tente novamente!")
+        }
+      }
       this.getFunc();
-    } catch (error) {
-      this._toastService.error("Funcionario não removido, tente novamente!")
-    }
+    });
+
+  
   }
 
   openDialog(id: number) {

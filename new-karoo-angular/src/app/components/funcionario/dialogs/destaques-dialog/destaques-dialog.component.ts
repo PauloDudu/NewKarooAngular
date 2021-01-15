@@ -1,5 +1,4 @@
-
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastService } from 'angular-toastify';
 import { Destaque } from 'src/models/models';
@@ -27,9 +26,9 @@ export class DestaquesDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DestaquesDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { 
+    @Inject(MAT_DIALOG_DATA) public data: {
       destaque: Destaque
-     }, private _toastService: ToastService
+    }, private _toastService: ToastService
   ) { }
 
   close() {
@@ -38,13 +37,13 @@ export class DestaquesDialogComponent {
 
   async updateDestaque() {
 
-    if(this.destaqueInicial.descricao === this.destaque.descricao && this.destaqueInicial.link === this.destaque.link) {
+    if (this.destaqueInicial.descricao === this.destaque.descricao && this.destaqueInicial.link === this.destaque.link) {
       this._toastService.warn("Faça alguma alteração!");
       return;
     }
 
     try {
-      await api.put('destaques',this.destaque);
+      await api.put('destaques', this.destaque);
       this._toastService.success("Destaque alterado com sucesso!");
       this.dialogRef.close();
     } catch (error) {
@@ -52,5 +51,5 @@ export class DestaquesDialogComponent {
     } finally {
       this.dialogRef.close();
     }
-  }  
+  }
 }
