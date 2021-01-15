@@ -22,6 +22,7 @@ export class AuthProviderGuard implements CanActivate {
       return false;
       
     } else if(token && this.verifyToken(token) ) {
+      this.handleAdmin(token);
       return true;
     }
   }
@@ -32,12 +33,25 @@ export class AuthProviderGuard implements CanActivate {
       
       const response = await api.post("login/verify", token);
       vality = response.data;
+
       return vality;
 
     } catch (error) {
       this._toastService.error("Seção inspirada, faça login");
-      this.router.navigate(['**'])
+      this.router.navigate(['**']);
       return vality;
+    }
+  }
+
+  async handleAdmin(token: string) {
+    try {
+
+      const results = await api.post("/admin/verify", token);
+      localStorage.setItem("@KAROO:func", JSON.stringify(results.data));
+
+
+    } catch (error) {
+      console.log(error);
     }
   }
 }

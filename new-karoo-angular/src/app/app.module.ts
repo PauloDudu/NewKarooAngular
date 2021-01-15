@@ -21,6 +21,7 @@ import { DestaquesDialogComponent } from './components/funcionario/dialogs/desta
 import { AcessoDialogComponent } from './components/funcionario/dialogs/acesso-dialog/acesso-dialog.component';
 import { MatTableModule } from '@angular/material/table';
 import { AtendimentoDialogComponent } from './components/funcionario/dialogs/atendimento-dialog/atendimento-dialog.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { AtendimentoDialogComponent } from './components/funcionario/dialogs/ate
     DestaquesDialogComponent,
     AcessoDialogComponent,
     AtendimentoDialogComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

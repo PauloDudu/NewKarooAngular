@@ -10,21 +10,22 @@ import { DestaquesComponent } from './components/funcionario/destaques/destaques
 import { AtendimentoComponent } from './components/funcionario/atendimento/atendimento.component';
 import { AuthProviderGuard } from './hooks/auth-provider.guard';
 
+let func = JSON.parse(localStorage.getItem("@KAROO:func") || "{}");
 
 const routes: Routes = [
   { path: 'form', component: FormComponent },
-  { path: 'chat', component: ChatComponent},
+  { path: 'chat', component: ChatComponent },
   { path: 'login', component: LoginComponent },
   { path: 'atendimento', component: AtendimentoComponent, canActivate: [AuthProviderGuard] },
-  { path: 'func-acesso', component: AcessoComponent, canActivate: [AuthProviderGuard] },
+  { path: 'func-acesso', component: func.isAdmin ? AcessoComponent : DashboardComponent, canActivate: [AuthProviderGuard] },
   { path: 'func-destaques', component: DestaquesComponent, canActivate: [AuthProviderGuard] },
   { path: '**', component: DashboardComponent },
-
 ];
+
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes), 
+    RouterModule.forRoot(routes),
     HttpClientModule,
   ],
   exports: [RouterModule]

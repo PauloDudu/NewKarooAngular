@@ -29,6 +29,7 @@ export class AcessoComponent implements OnInit {
   }
 
   async getFunc() {
+
     try {
       const results = await api.get("funcionarios");
       
