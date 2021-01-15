@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastService } from 'angular-toastify';
 import { Assunto } from 'src/models/models';
 import { api } from 'src/services/api';
 
@@ -29,9 +30,11 @@ export class AtendimentoDialogComponent implements OnInit {
     
     try {
      console.log(await api.put(`assunto`, {...this.data.assunto, atendido: true}));
-      window.location.reload();
+     this.dialogRef.close(true);
+
     } catch (error) {
       console.log(error);
-    }
+      this.dialogRef.close(false);
+    } 
   }
 }

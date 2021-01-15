@@ -13,7 +13,7 @@ import { AuthProviderGuard } from './hooks/auth-provider.guard';
 
 const routes: Routes = [
   { path: 'form', component: FormComponent },
-  { path: 'chat', component: ChatComponent, canActivate: [AuthProviderGuard]},
+  { path: 'chat', component: ChatComponent},
   { path: 'login', component: LoginComponent },
   { path: 'atendimento', component: AtendimentoComponent, canActivate: [AuthProviderGuard] },
   { path: 'func-acesso', component: AcessoComponent, canActivate: [AuthProviderGuard] },
