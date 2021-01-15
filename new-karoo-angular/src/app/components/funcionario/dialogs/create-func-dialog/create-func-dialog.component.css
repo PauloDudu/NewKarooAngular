@@ -1,0 +1,19 @@
+div.create-func-dialog {
+    width: 40vw;
+    height: 42vh;
+  }
+  h2.mat-dialog-title {
+    color: #f1592a;
+  }
+  
+  mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-dialog-content span,
+  input {
+    margin: 2px 0;
+    outline: none;
+  }
+  

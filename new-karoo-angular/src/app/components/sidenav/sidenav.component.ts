@@ -33,6 +33,6 @@ export class SidenavComponent implements AfterViewInit, OnInit {
       if (funcionario.isAdmin) {
         this.isAdmin = true;
       }
-    }, 200);
+    }, 500);
   }
 }

@@ -27,6 +27,7 @@ export class AtendimentoComponent implements OnInit {
     this.assuntos = [];
     this.atendidos = [];
     this.pendentes = [];
+    
     try {
       let response = await api.get('/assuntos');
       this.assuntos = response.data;
@@ -38,7 +39,7 @@ export class AtendimentoComponent implements OnInit {
         }
       });
     } catch (error) {
-      console.log(error);
+      this._toastService.warn("Error ao iniciar pagina reinicie por favor!");
     }
   }
 
