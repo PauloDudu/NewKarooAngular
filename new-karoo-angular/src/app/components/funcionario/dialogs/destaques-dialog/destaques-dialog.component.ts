@@ -1,6 +1,6 @@
-
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastService } from 'angular-toastify';
 import { Destaque } from 'src/models/models';
 import { api } from 'src/services/api';
 
@@ -18,11 +18,17 @@ export class DestaquesDialogComponent {
     descricao: this.data.destaque.descricao
   }
 
+  destaqueInicial: Destaque = {
+    id: this.data.destaque.id,
+    link: this.data.destaque.link,
+    descricao: this.data.destaque.descricao
+  }
+
   constructor(
     public dialogRef: MatDialogRef<DestaquesDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { 
+    @Inject(MAT_DIALOG_DATA) public data: {
       destaque: Destaque
-     }
+    }, private _toastService: ToastService
   ) { }
 
   close() {
@@ -30,12 +36,20 @@ export class DestaquesDialogComponent {
   }
 
   async updateDestaque() {
+
+    if (this.destaqueInicial.descricao === this.destaque.descricao && this.destaqueInicial.link === this.destaque.link) {
+      this._toastService.warn("Faça alguma alteração!");
+      return;
+    }
+
     try {
-      let results = await api.put('destaques',this.destaque);
-      console.log(results.data);
+      await api.put('destaques', this.destaque);
+      this._toastService.success("Destaque alterado com sucesso!");
       this.dialogRef.close();
     } catch (error) {
-      console.log(error);
+      this._toastService.error("Destaque nao alterado tente novamente!");
+    } finally {
+      this.dialogRef.close();
     }
-  }  
+  }
 }

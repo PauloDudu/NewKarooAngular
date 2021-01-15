@@ -22,6 +22,8 @@ import { AcessoDialogComponent } from './components/funcionario/dialogs/acesso-d
 import { MatTableModule } from '@angular/material/table';
 import { AtendimentoDialogComponent } from './components/funcionario/dialogs/atendimento-dialog/atendimento-dialog.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { CreateFuncDialogComponent } from './components/funcionario/dialogs/create-func-dialog/create-func-dialog.component';
+import { RemoveFuncDialogComponent } from './components/funcionario/dialogs/remove-func-dialog/remove-func-dialog.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     AcessoDialogComponent,
     AtendimentoDialogComponent,
     SidenavComponent,
+    CreateFuncDialogComponent,
+    RemoveFuncDialogComponent,
   ],
   imports: [
     BrowserModule,

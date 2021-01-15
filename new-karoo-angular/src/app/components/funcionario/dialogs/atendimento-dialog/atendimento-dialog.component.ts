@@ -29,7 +29,7 @@ export class AtendimentoDialogComponent implements OnInit {
   async updateAtendimento() {
     
     try {
-     console.log(await api.put(`assunto`, {...this.data.assunto, atendido: true}));
+     console.log(await api.put(`assunt`, {...this.data.assunto, atendido: true}));
      this.dialogRef.close(true);
 
     } catch (error) {

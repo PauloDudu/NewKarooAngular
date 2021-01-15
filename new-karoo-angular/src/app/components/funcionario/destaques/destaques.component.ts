@@ -29,6 +29,7 @@ export class DestaquesComponent implements OnInit {
   }
 
   async ngGetApi() {
+
     try {
 
       let results = await api.get<Destaque[]>("destaques");
@@ -36,18 +37,18 @@ export class DestaquesComponent implements OnInit {
       this.destaques = results.data;
 
     } catch (Exception) {
-      console.log(Exception);
+      this._toastService.warn("Ocorreu um erro na inicialização por favor atualize a pagina");
     }
   }
 
   async delete(id: number) {
 
     try {
-      let result = await api.delete(`destaques/${id}`);
+      await api.delete(`destaques/${id}`);
+      this._toastService.success("Destaque removido com sucesso!")
       this.ngGetApi();
-      console.log(result);
     } catch (error) {
-      console.log(error);
+      this._toastService.error("Ocorreu um erro na exclusão tente novamente!")
     }
   }
 
@@ -63,7 +64,6 @@ export class DestaquesComponent implements OnInit {
 
       this._toastService.success("Destaque criado com sucesso!");
     } catch (error) {
-      console.log(error);
       this._toastService.error("Ocorreu algum erro tente novamente!");
     } finally {
       this.ngGetApi();

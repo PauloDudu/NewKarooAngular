@@ -3,7 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { Funcionario } from 'src/models/models';
 import { api } from 'src/services/api';
 import { AcessoDialogComponent } from '../dialogs/acesso-dialog/acesso-dialog.component';
+import { CreateFuncDialogComponent } from '../dialogs/create-func-dialog/create-func-dialog.component';
 import { logOut } from "../function";
+import { ToastService } from 'angular-toastify';
+import { RemoveFuncDialogComponent } from '../dialogs/remove-func-dialog/remove-func-dialog.component';
 
 @Component({
   selector: 'app-acesso',
@@ -22,7 +25,7 @@ export class AcessoComponent implements OnInit {
 
   funcionarios: Funcionario[] = [];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private _toastService: ToastService) { }
 
   ngOnInit(): void {
     this.getFunc();
@@ -31,30 +34,51 @@ export class AcessoComponent implements OnInit {
   async getFunc() {
 
     try {
-      const results = await api.get("funcionarios");
-      
-      this.funcionarios = results.data;
 
-      console.log(this.funcionarios)
+      const results = await api.get("funcionarios");
+      this.funcionarios = results.data;
       
     } catch (error) {
-      
+      this._toastService.warn("Error ao iniciar pagina reinicie por favor!");
     }
   }
 
   async removeFunc(id: number) {
-    try {
-      let reponse = await api.delete(`funcionarios/${id}`);
-      console.log(reponse);
+
+    const dialogRef = this.dialog.open(RemoveFuncDialogComponent, {
+      disableClose: true
+    });
+    
+    dialogRef.afterClosed().subscribe( async (results) => {
+
+      if(results) {
+        try {      
+          await api.delete(`funcionarios/${id}`);
+          this._toastService.success("Funcionario removido com sucesso!")
+          this.getFunc();
+        } catch (error) {
+          this._toastService.error("Funcionario não removido, tente novamente!")
+        }
+      }
       this.getFunc();
-    } catch (error) {
-      console.log(error);
-    }
+    });
+
+  
   }
 
   openDialog(id: number) {
     const dialogRef = this.dialog.open(AcessoDialogComponent, {
       data: { funcionario: this.funcionarios.find((funcionario: Funcionario) => id === funcionario.id)},
+      disableClose: true
+    });
+    
+    dialogRef.afterClosed().subscribe(() => {
+      this.getFunc();
+    });
+  }
+
+  openDialogFunc() {
+    const dialogRef = this.dialog.open(CreateFuncDialogComponent, {
       disableClose: true
     });
     
