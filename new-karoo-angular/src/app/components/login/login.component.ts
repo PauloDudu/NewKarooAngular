@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     console.log("Submit", this.funcionario);
 
     try {
+
       let response = await api.post('login', this.funcionario);
       localStorage.setItem("@KAROO:token", response.data);
       window.location.replace("/atendimento");
