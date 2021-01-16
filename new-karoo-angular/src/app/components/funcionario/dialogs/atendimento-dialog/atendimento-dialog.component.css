@@ -1,6 +1,10 @@
 div.dialog-atend {
     width: 35vw;
     height: 50vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-content: center;
 }
 
 button {
@@ -9,4 +13,33 @@ button {
 
 strong, h1 {
     color: #f1592a;
+}
+
+div.dialog-atend:nth-child(2n) {
+    margin: 0;
+}
+
+
+button.atender {
+    border: 0;
+    background-color: #08c96f;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+}
+
+button.cancelar {
+    border: 0;
+    background-color: #c90808;
+    padding: 10px;
+    color: #fff;
+  border-radius: 5px;
+  outline: none;
+  margin: 2px;
+}
+
+button.atender:hover,
+button.cancelar:hover{
+  opacity: 0.8;
 }

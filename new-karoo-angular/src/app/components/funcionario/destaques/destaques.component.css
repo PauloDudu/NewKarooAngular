@@ -1,16 +1,82 @@
+div.header {
+  margin-bottom: 10vh;
+}
+
 h1.destaque {
-    margin: 3vh 0;
-    padding: 5px;
+  margin: 3vh 0;
+  padding: 5px;
 }
 
 div.destaque {
-    background-color: #ff6600bb;
-    margin: 5px 0;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 3px;
-    color: cornsilk;
+  margin: 5px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+  color: black;
+  border-bottom: 1px solid gray;
+}
+
+div.newD {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+div.newD input {
+  padding: 5px;
+  width: 40vw;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid #f1592a;
+}
+
+div.newD button {
+  width: 6vw;
+  padding: 6px;
+  margin: 10px 3.93vw -4px auto;
+  border: 0;
+  background-color: #08c96f;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+}
+
+button.newDestCreate {
+  border: 0;
+  background-color: #08c96f;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+}
+
+button.newDestCancel {
+  border: 0;
+  background-color: #c90808;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  margin: 2px;
+}
+
+button.destUpdate {
+  border: 0;
+  background-color: #c98c08;
+  padding: 10.3px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  margin: 2px;
+}
+
+div.newD button:hover,
+button.newDestCreate:hover,
+button.newDestCancel:hover,
+button.destUpdate:hover {
+  opacity: 0.8;
 }

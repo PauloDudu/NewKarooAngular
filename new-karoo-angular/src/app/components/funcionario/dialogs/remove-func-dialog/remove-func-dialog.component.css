@@ -1,0 +1,38 @@
+div.remove {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+
+}
+
+div.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h2 {
+    color: #F1592A;
+}
+
+button.cancel:hover,
+button.remove:hover{
+  opacity: 0.8;
+}
+
+button.cancel {
+  border: 0;
+  background-color: #08c96f;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+}
+
+button.remove {
+  border: 0;
+  background-color: #c90808;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  margin: 2px;
+}

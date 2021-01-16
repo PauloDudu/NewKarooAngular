@@ -1,7 +1,6 @@
 main {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     flex-direction: column;
 }
 
@@ -21,4 +20,46 @@ th {
 
 td {
     padding: 3px;
+    border-bottom: 1px solid orange;
+    border-radius: 3px;
+}
+
+td:last-child {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button.newFuncCreate {
+  border: 0;
+  background-color: #08c96f;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+}
+
+button.newFuncCancel {
+  border: 0;
+  background-color: #c90808;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  margin: 2px;
+}
+
+button.funcUpdate {
+  border: 0;
+  background-color: #c98c08;
+  padding: 10.3px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  margin: 2px;
+}
+
+button.newFuncCreate:hover,
+button.newFuncCancel:hover,
+button.funcUpdate:hover {
+  opacity: 0.8;
 }

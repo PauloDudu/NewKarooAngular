@@ -26,8 +26,8 @@ export class SidenavComponent implements AfterViewInit, OnInit {
   }
 
   handleAdmin(): any {
-    setTimeout(() => {
 
+    setTimeout(() => {
       let funcionario = JSON.parse(localStorage.getItem("@KAROO:func") || "{}");
       console.log("Funcionario", funcionario);
       if (funcionario.isAdmin) {

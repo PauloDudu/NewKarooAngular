@@ -4,7 +4,7 @@
   <main class="main-acesso" id="main-acesso">
     <h1 class="acesso">Acesso</h1>
     <table>
-      <button (click)="openDialogFunc()">Create</button>
+      <button class="newFuncCreate" (click)="openDialogFunc()">Criar</button>
       <tr>
         <th>Id</th>
         <th>Nome</th>
@@ -16,8 +16,8 @@
         <td>{{ funcionario.nome }}</td>
         <td>{{ funcionario.email }}</td>
         <td>
-          <button (click)="openDialog(funcionario.id)">Editar</button>
-          <button (click)="removeFunc(funcionario.id)">Excluir</button>
+          <button class="funcUpdate" (click)="openDialog(funcionario.id)">Editar</button>
+          <button class="newFuncCancel" (click)="removeFunc(funcionario.id)">Excluir</button>
         </td>
       </tr>
     </table>
