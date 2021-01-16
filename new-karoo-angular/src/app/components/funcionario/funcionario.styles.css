@@ -8,13 +8,14 @@ body {
   background-color: white;
   margin: 0;
   padding: 0;
+
 }
 
 main {
   margin-left: 5rem;
   overflow: auto;
-  height: 100vh;
-  max-height: 100vh;
+  height: 99vh;
+  max-height: 99vh;
   padding: 20px;
 }
 

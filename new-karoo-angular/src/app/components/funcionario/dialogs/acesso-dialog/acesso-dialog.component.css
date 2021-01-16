@@ -1,19 +1,49 @@
 div.dialog-access {
-    width: 30vw;
-    height: 32vh;
+  width: 30vw;
+  height: 32vh;
 }
 
 h2.mat-dialog-title {
-    color: #f1592a;
+  color: #f1592a;
 }
 
 mat-dialog-content {
-    display: flex;
-    flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
 }
 
-mat-dialog-content span, input {
-    margin: 2px 0;
-    outline: none;
+mat-dialog-content span,
+input {
+  margin: 2px 0;
+  outline: none;
+}
+
+mat-dialog-content input {
+    border: 0;
+    border-bottom: 1px solid #f1592a;
+    padding: 4px;
+}
+
+button.funcUpdate {
+  border: 0;
+  background-color: #08c96f;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+}
+
+button.funcCancel {
+  border: 0;
+  background-color: #c90808;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  margin: 2px;
+}
+
+button.funcUpdate:hover,
+button.funcCancel:hover {
+  opacity: 0.8;
 }

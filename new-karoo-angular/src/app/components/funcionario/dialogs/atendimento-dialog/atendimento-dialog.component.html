@@ -6,10 +6,10 @@
   <h4><strong>Conteudo: </strong>{{ data.assunto.conteudo }}</h4>
   <h4><strong>Status: </strong>{{ data.assunto.atendido ? "Atendido" : "Pendente" }}</h4>
   <div *ngIf="data.assunto.atendido == false">
-    <button (click)="close()">Cancelar</button>
-    <button (click)="updateAtendimento()">Atender</button>
+    <button class="cancelar" (click)="close()">Cancelar</button>
+    <button class="atender" (click)="updateAtendimento()">Atender</button>
   </div>
   <div *ngIf="data.assunto.atendido == true">
-    <button (click)="close()">Cancelar</button>
+    <button class="cancelar" (click)="close()">Cancelar</button>
   </div>
 </div>

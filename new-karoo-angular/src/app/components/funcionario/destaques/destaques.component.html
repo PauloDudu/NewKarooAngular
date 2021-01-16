@@ -3,15 +3,16 @@
 
   <main>
     <h1 class="destaque">Artigos em destaque</h1>
-    <button (click)="create = !create">Create</button>
-    <div *ngIf="create === true">
-        <span>Descrição</span>
-        <input type="text" placeholder="Ajuda no cors" [(ngModel)]="destaque.descricao">
-        <span>Link</span>
-        <input type="text" placeholder="Ajuda no cors" [(ngModel)]="destaque.link">
-        <button (click)="createDest()">Criar</button>
-    </div>
+  <button class="{{ !create ? 'newDestCreate' : 'newDestCancel' }}" (click)="create = !create">{{ !create ? "Create" : "Cancel"}}</button>
     <div class="lista-container">
+      <div class="newD" *ngIf="create">
+          <span><strong>Descrição</strong></span>
+          <span><strong>link</strong></span>
+          <input type="text" placeholder="Ajuda no cors" [(ngModel)]="destaque.descricao">
+          <input type="text" placeholder="https://www.exemplo.com" [(ngModel)]="destaque.link">
+          <br>
+          <button (click)="createDest()">Criar</button>
+      </div>
       <div class="lista" *ngIf="destaques.length == 0">
         Nao há informações adicionais
       </div>
@@ -19,8 +20,8 @@
         <div class="destaque">
           <span>Descrição: {{ destaque.descricao }}</span>
           <div>
-            <button (click)="openDialog(destaque.id)">Editar</button>
-            <button (click)="delete(destaque.id)">Apagar</button>
+            <button class="destUpdate" (click)="openDialog(destaque.id)">Editar</button>
+            <button class="newDestCancel" (click)="delete(destaque.id)">Apagar</button>
           </div>
         </div>
       </div>

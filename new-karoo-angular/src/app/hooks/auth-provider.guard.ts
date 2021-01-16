@@ -49,7 +49,6 @@ export class AuthProviderGuard implements CanActivate {
       const results = await api.post("/admin/verify", token);
       localStorage.setItem("@KAROO:func", JSON.stringify(results.data));
 
-
     } catch (error) {
       console.log(error);
     }

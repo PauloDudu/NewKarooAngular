@@ -3,20 +3,20 @@
 
   <main class="atendimento">
     <h1>Atendimento</h1>
-    <h3>Pendentes</h3>
+    <h3 class="atendimento">Pendentes</h3>
     <div class="lista">
       <div *ngFor="let assunto of pendentes">
         <div class="assunto" (click)="open(assunto.codigoCliente)">
-          <span><strong>Email:</strong> {{ assunto.email }}</span> 
+          <span><strong>Email:</strong> {{ assunto.email }}</span>
           <span><strong>Conteudo:</strong> {{ assunto.conteudo }}</span>
-          </div>
+        </div>
       </div>
     </div>
-    <h3>Concluídos</h3>
+    <h3 class="atendimento">Concluídos</h3>
     <div class="lista">
       <div *ngFor="let assunto of atendidos">
         <div class="assunto" (click)="open(assunto.codigoCliente)">
-          <span><strong>Email:</strong> {{ assunto.email }}</span> 
+          <span><strong>Email:</strong> {{ assunto.email }}</span>
           <span><strong>Conteudo:</strong> {{ assunto.conteudo }}</span>
         </div>
       </div>

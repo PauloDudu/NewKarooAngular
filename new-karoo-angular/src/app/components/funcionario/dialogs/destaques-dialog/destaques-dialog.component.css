@@ -1,7 +1,20 @@
 div.dialog-destque {
-  width: 30vw;
-  height: 32vh;
+  width: 50vw;
+  height: 30vh;
 }
+
+mat-dialog-content span {
+  font-weight: 600;
+  color: #f1592a;
+}
+
+mat-dialog-content input {
+  outline: none;
+  padding: 5px;
+  border: 0;
+  border-bottom: 1px solid #f1592a;
+}
+
 h2.mat-dialog-title {
   color: #f1592a;
 }
@@ -15,4 +28,32 @@ mat-dialog-content span,
 input {
   margin: 2px 0;
   outline: none;
+}
+
+mat-dialog-actions {
+  display: flex;
+  align-items: center;
+}
+
+div.buttons {
+  margin-left: auto;
+}
+
+mat-dialog-actions button.leave, button.save {
+  border: 0;
+  padding: 7px;
+  border-radius: 4px;
+  margin: 2px 5px;
+
+}
+
+mat-dialog-actions button.leave {
+  background-color: #f02e2e;
+  color: #fff;
+}
+
+
+mat-dialog-actions button.save {
+  background-color: #0db821;
+  color: #fff;
 }
