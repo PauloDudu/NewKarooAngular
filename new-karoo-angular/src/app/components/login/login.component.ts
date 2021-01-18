@@ -11,12 +11,14 @@ import { api } from 'src/services/api';
 export class LoginComponent implements OnInit {
 
   funcionario: Funcionario = {
-    email: "dudu.dsn.pack",
+    email: "",
     id: 0,
     nome: "",
-    senha: "123123",
+    senha: "",
 
   };
+
+  results: any;
 
   token: string = "";
 
@@ -40,11 +42,21 @@ export class LoginComponent implements OnInit {
     try {
 
       let response = await api.post('login', this.funcionario);
-      localStorage.setItem("@KAROO:token", response.data);
-      window.location.replace("/atendimento");
+
+      this.results = response.data;
+
 
     } catch (error) {
       this._toastService.error("Email ou senha incorretos");
     }
+
+    if (this.results == "") {
+      this._toastService.error("Email ou senha incorretos");
+      return;
+    }
+
+    localStorage.setItem("@KAROO:token", this.results);
+    window.location.replace("/atendimento");
+
   }
 }
