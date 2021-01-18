@@ -12,12 +12,10 @@ export class SidenavComponent implements AfterViewInit, OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log("Ola Mundo")
     this.handleAdmin();
   }
 
   ngAfterViewInit() {
-    console.log("Ola Mundo")
     this.handleAdmin();
   }
 
@@ -25,11 +23,10 @@ export class SidenavComponent implements AfterViewInit, OnInit {
     logOut();
   }
 
-  handleAdmin(): any {
+  handleAdmin(): void {
 
     setTimeout(() => {
       let funcionario = JSON.parse(localStorage.getItem("@KAROO:func") || "{}");
-      console.log("Funcionario", funcionario);
       if (funcionario.isAdmin) {
         this.isAdmin = true;
       }

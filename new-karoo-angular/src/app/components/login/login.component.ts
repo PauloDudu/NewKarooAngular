@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
 
   };
 
+  results: any;
+
   token: string = "";
 
   constructor(
@@ -40,11 +42,21 @@ export class LoginComponent implements OnInit {
     try {
 
       let response = await api.post('login', this.funcionario);
-      localStorage.setItem("@KAROO:token", response.data);
-      window.location.replace("/atendimento");
+
+      this.results = response.data;
+
 
     } catch (error) {
       this._toastService.error("Email ou senha incorretos");
     }
+
+    if (this.results == "") {
+      this._toastService.error("Email ou senha incorretos");
+      return;
+    }
+
+    localStorage.setItem("@KAROO:token", this.results);
+    window.location.replace("/atendimento");
+
   }
 }

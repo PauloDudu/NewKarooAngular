@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Funcionario } from 'src/models/models';
 
 @Component({
   selector: 'app-header',
@@ -10,20 +11,22 @@ export class HeaderComponent implements OnInit {
   @Input() 
   titulo:string = "";
     
-  user: any;
+  user: Funcionario = {
+    email: "",
+    id: 0,
+    nome: "",
+    senha: ""
+  };
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.titulo);
     this.getUser();
   }
 
   getUser() {
     setTimeout(() => {
       this.user = JSON.parse(localStorage.getItem("@KAROO:func") || '{}');
-    }, 300);
-    
+    }, 300); 
   }
-
 }
