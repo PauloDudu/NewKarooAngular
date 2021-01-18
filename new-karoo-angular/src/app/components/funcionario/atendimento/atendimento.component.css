@@ -6,6 +6,10 @@ main.atendimento {
     
 }
 
+app-header {
+    padding: 13px;
+}
+
 div.assunto {
     width: 70vw;
     height: 5vh;
